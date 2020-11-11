@@ -103,7 +103,7 @@ def create_triggers(cls):
 
 
 class TransactionFactory(ModelFactory):
-    model_name = 'Transaction'
+    model_name = 'VersionTransaction'
 
     def __init__(self, remote_addr=True):
         self.remote_addr = remote_addr
@@ -116,7 +116,7 @@ class TransactionFactory(ModelFactory):
             manager.declarative_base,
             TransactionBase
         ):
-            __tablename__ = 'transaction'
+            __tablename__ = 'version_transaction'
             __versioning_manager__ = manager
 
             id = sa.Column(
