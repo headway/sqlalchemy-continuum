@@ -112,7 +112,7 @@ class TransactionFactory(ModelFactory):
         """
         Create Transaction class.
         """
-        class Transaction(
+        class VersionTransaction(
             manager.declarative_base,
             TransactionBase
         ):
@@ -173,5 +173,5 @@ class TransactionFactory(ModelFactory):
                 )
 
         if manager.options['native_versioning'] and manager.options['create_trigger_listeners']:
-            create_triggers(Transaction)
-        return Transaction
+            create_triggers(VersionTransaction)
+        return VersionTransaction
