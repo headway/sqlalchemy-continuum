@@ -121,7 +121,7 @@ class TransactionFactory(ModelFactory):
 
             id = sa.Column(
                 sa.types.BigInteger,
-                sa.schema.Sequence('transaction_id_seq'),
+                sa.schema.Sequence('version_transaction_id_seq'),
                 primary_key=True,
                 autoincrement=True
             )
@@ -160,7 +160,7 @@ class TransactionFactory(ModelFactory):
                     for field in fields
                     if hasattr(self, field)
                 )
-                return '<Transaction %s>' % ', '.join(
+                return '<VersionTransaction %s>' % ', '.join(
                     (
                         '%s=%r' % (field, value)
                         if not isinstance(value, six.integer_types)
